@@ -1,0 +1,39 @@
+##################################################################################
+## Papilio_Pro.ucf
+##
+## Author: Jack Gassett
+##
+## Details: http://gadgetforge.gadgetfactory.net/gf/project/butterfly_one/
+##
+## Contains assignment and iostandard information for
+## all used pins as well as timing and area constraints for Papilio Pro that uses 32Mhz oscillator.
+##
+##################################################################################
+
+# Crystal Clock - use 50MHz onboard oscillator
+NET "clk" LOC = T8 | TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 50000 kHz;
+
+# Adding a Pullup resistors ensures the project will always be running.
+##
+NET nrst                  LOC = L3 | IOSTANDARD = "LVCMOS33"; ## reset pushbutton
+##
+
+# Wing1 Column A
+
+# Wing1 Column B
+
+# Wing2 Column C
+
+## RS232
+NET rxd                   LOC = C11 | IOSTANDARD = "LVCMOS33";	## Uart RXD:U4_TXD
+NET txd                   LOC = D12 | IOSTANDARD = "LVCMOS33"; 	## Uart TXD:U4_RXD
+
+## Prohibit the automatic placement of pins that are connected to VCC or GND for configuration.
+#CONFIG PROHIBIT=P144 ;		#HSWAP
+#CONFIG PROHIBIT=P69 ;		#M0
+#CONFIG PROHIBIT=P60 ;		#M1
+#CONFIG PROHIBIT=P ;		#M2
+#CONFIG PROHIBIT=P ;		#VS0
+#CONFIG PROHIBIT=P ;		#VS1
+#CONFIG PROHIBIT=P ;		#VS2
